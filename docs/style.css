@@ -1,0 +1,111 @@
+/* 全体 */
+body {
+  margin: 0;
+  font-family: "Yu Gothic", sans-serif;
+  background: #f5faff;
+  color: #333;
+}
+
+/* 市松模様（青基調） */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(45deg, #d0e7ff 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #d0e7ff 75%),
+    linear-gradient(45deg, #d0e7ff 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #d0e7ff 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px, 20px 0, 0 20px;
+  opacity: 0.25;
+  z-index: -1;
+}
+
+/* ファーストビュー */
+.fv {
+  background: linear-gradient(to bottom right, #4a90e2, #357ab7);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.fv-content h1 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.fv-content p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* セクション */
+.section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2a5fa8;
+}
+
+/* カード */
+.cards {
+  display: grid;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #2a5fa8;
+}
+
+/* ポイントリスト */
+.points li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 80px 20px;
+  background: #e6f1ff;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background: #357ab7;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background: #2a5fa8;
+}
+
+/* スマホ対応 */
+@media (min-width: 700px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

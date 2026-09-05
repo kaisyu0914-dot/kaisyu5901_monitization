@@ -1,0 +1,69 @@
+:root {
+  --ink: #3c202d;
+  --muted: #866673;
+  --paper: #fff8fb;
+  --pink: #e77ca6;
+  --soft-pink: #ffe5ef;
+  --line: #edbfd2;
+  --serif: "Noto Serif JP", serif;
+  --sans: "DM Sans", "Yu Gothic", sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--sans); margin: 0; }
+a { color: inherit; text-decoration: none; }
+
+.form-header { align-items: center; display: flex; justify-content: space-between; padding: 28px 8vw; }
+.logo { font-size: 1.05rem; font-weight: 600; letter-spacing: .16em; }
+.logo span { color: var(--muted); display: block; font-size: .47rem; font-weight: 400; letter-spacing: .18em; margin-top: 5px; text-transform: uppercase; }
+.back-link { border-bottom: 1px solid var(--pink); color: var(--muted); font-size: .7rem; padding-bottom: 7px; }
+
+.form-intro { background: var(--soft-pink); padding: 95px 20px 88px; text-align: center; }
+.eyebrow { color: var(--pink); font-size: .68rem; letter-spacing: .19em; margin: 0 0 24px; text-transform: uppercase; }
+.form-intro h1, .form-complete h2 { font-family: var(--serif); font-size: clamp(2.25rem, 4vw, 3.9rem); font-weight: 500; line-height: 1.45; margin: 0 0 25px; }
+.form-intro h1 em { color: var(--pink); font-style: normal; }
+.form-intro > p:last-child, .form-complete > p:last-child { color: var(--muted); font-size: .82rem; line-height: 2; }
+.reservation-form { margin: 0 auto; max-width: 860px; padding: 85px 30px 110px; }
+.form-section { border-top: 1px solid var(--line); padding: 34px 0 58px; }
+.form-section-title { align-items: center; display: flex; gap: 20px; margin-bottom: 35px; }
+.form-section-title span { color: var(--pink); font-family: var(--serif); font-size: 1.15rem; }
+.form-section-title h2 { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; margin: 0; }
+.field-grid { display: grid; gap: 30px 24px; grid-template-columns: 1fr 1fr; }
+.field { display: block; }
+.field.full { grid-column: 1 / -1; }
+.field > span { display: block; font-size: .72rem; letter-spacing: .08em; margin-bottom: 10px; }
+.field b { background: var(--pink); color: #fff; font-size: .57rem; font-weight: 400; letter-spacing: .06em; margin-left: 8px; padding: 3px 6px; }
+input, textarea, select { background: #fff; border: 1px solid var(--line); border-radius: 0; color: var(--ink); font: inherit; font-size: .82rem; outline: none; padding: 16px; transition: border-color .2s, box-shadow .2s; width: 100%; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--pink) 50%), linear-gradient(135deg, var(--pink) 50%, transparent 50%); background-position: calc(100% - 20px) 21px, calc(100% - 15px) 21px; background-repeat: no-repeat; background-size: 5px 5px, 5px 5px; cursor: pointer; }
+textarea { min-height: 155px; resize: vertical; }
+input::placeholder, textarea::placeholder { color: #c5aab5; }
+input:focus, textarea:focus, select:focus { border-color: var(--pink); box-shadow: 0 0 0 3px rgba(231, 124, 166, .14); }
+.field-note { color: var(--muted); font-size: .67rem; line-height: 1.8; margin: 14px 0 0; }
+.student-option { align-items: center; color: var(--muted); display: flex; font-size: .72rem; gap: 10px; margin-top: 18px; }
+.student-option input { accent-color: var(--pink); height: 16px; padding: 0; width: 16px; }
+.price-summary { align-items: center; background: var(--soft-pink); display: grid; grid-template-columns: 1fr auto; margin-top: 28px; padding: 18px 20px; }
+.price-summary span { font-size: .75rem; letter-spacing: .08em; }
+.price-summary strong { color: var(--pink); font-family: var(--serif); font-size: 1.5rem; font-weight: 500; }
+.price-summary small { color: var(--muted); font-size: .65rem; grid-column: 1 / -1; margin-top: 5px; }
+.form-actions { border-top: 1px solid var(--line); padding-top: 32px; text-align: center; }
+.form-actions p { color: var(--muted); font-size: .68rem; margin: 0 0 20px; }
+.submit-button, .back-button { background: var(--pink); border: 0; color: #fff; cursor: pointer; display: inline-block; font: inherit; font-size: .72rem; letter-spacing: .1em; padding: 18px 28px; transition: background .2s, transform .2s; }
+.submit-button span { margin-left: 18px; }
+.submit-button:hover, .back-button:hover { background: #ce5e89; transform: translateY(-2px); }
+.form-complete { margin: 80px auto 140px; max-width: 680px; padding: 80px 30px; text-align: center; }
+.complete-mark { color: var(--pink); font-size: 3.5rem; margin: 0 0 20px; }
+.form-complete h2 { font-size: 2.5rem; }
+.form-complete .back-button { margin-top: 25px; }
+footer { background: #3d1f2f; color: #f8dce7; font-size: .62rem; letter-spacing: .08em; padding: 30px; text-align: center; }
+
+@media (max-width: 600px) {
+  .form-header { padding: 20px 6vw; }
+  .back-link { font-size: .62rem; }
+  .form-intro { padding: 75px 8vw 70px; }
+  .reservation-form { padding: 65px 8vw 85px; }
+  .field-grid { display: block; }
+  .field + .field { margin-top: 26px; }
+  .form-section { padding-bottom: 45px; }
+  .form-complete { margin: 50px auto 90px; padding: 50px 8vw; }
+  .form-complete h2 { font-size: 2rem; }
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LUMIÈREの予約フォーム。必要事項を入力してご予約ください。">
+    <title>Reservation | LUMIÈRE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reservation.css">
+</head>
+
+<body>
+    <header class="form-header">
+        <a class="logo" href="index.html">LUMIÈRE <span>girls hair salon</span></a>
+        <a class="back-link" href="index.html">← サロンサイトへ戻る</a>
+    </header>
+
+    <main>
+        <section class="form-intro">
+            <p class="eyebrow">Online reservation</p>
+            <h1>あなたの「なりたい」を<br><em>教えてください。</em></h1>
+            <p>ご希望を確認して、担当スタイリストから折り返しご連絡します。<br>学生の方は、来店時に学生証をご提示ください。</p>
+        </section>
+
+        <form class="reservation-form" id="reservationForm">
+            <div class="form-section">
+                <div class="form-section-title"><span>01</span><h2>お客様情報</h2></div>
+                <div class="field-grid">
+                    <label class="field full">
+                        <span>氏名 <b>必須</b></span>
+                        <input type="text" name="name" placeholder="例：田中 花子" autocomplete="name" required>
+                    </label>
+                    <label class="field">
+                        <span>電話番号 <b>必須</b></span>
+                        <input type="tel" name="phone" placeholder="例：090-1234-5678" autocomplete="tel" required>
+                    </label>
+                    <label class="field">
+                        <span>住所 <b>必須</b></span>
+                        <input type="text" name="address" placeholder="例：東京都目黒区..." autocomplete="street-address" required>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="form-section-title"><span>02</span><h2>メニューを選ぶ</h2></div>
+                <label class="field">
+                    <span>ご希望のメニュー <b>必須</b></span>
+                    <select name="menu" id="menuSelect" required>
+                        <option value="" data-price="0">メニューを選択してください</option>
+                        <optgroup label="単品メニュー">
+                            <option value="似合わせカット" data-price="4400">似合わせカット　¥4,400</option>
+                            <option value="前髪・顔まわりカット" data-price="2200">前髪・顔まわりカット　¥2,200</option>
+                            <option value="透明感カラー" data-price="6600">透明感カラー　¥6,600</option>
+                            <option value="ブリーチ" data-price="8800">ブリーチ　¥8,800</option>
+                            <option value="ケアブリーチ" data-price="11000">ケアブリーチ　¥11,000</option>
+                            <option value="パーマ" data-price="7700">パーマ　¥7,700</option>
+                            <option value="韓国風パーマ" data-price="8800">韓国風パーマ　¥8,800</option>
+                            <option value="縮毛矯正" data-price="12100">縮毛矯正　¥12,100</option>
+                            <option value="前髪縮毛矯正" data-price="5500">前髪縮毛矯正　¥5,500</option>
+                            <option value="トリートメント" data-price="4400">オージュアトリートメント　¥4,400</option>
+                        </optgroup>
+                        <optgroup label="セットメニュー">
+                            <option value="カット & 透明感カラー" data-price="9900">カット &amp; 透明感カラー　¥9,900</option>
+                            <option value="カット & ブリーチカラー" data-price="15400">カット &amp; ブリーチカラー　¥15,400</option>
+                            <option value="カット & ケアブリーチカラー" data-price="17600">カット &amp; ケアブリーチカラー　¥17,600</option>
+                            <option value="カット & パーマ" data-price="11000">カット &amp; パーマ　¥11,000</option>
+                            <option value="カット & 韓国風パーマ" data-price="12100">カット &amp; 韓国風パーマ　¥12,100</option>
+                            <option value="カット & 縮毛矯正" data-price="16500">カット &amp; 縮毛矯正　¥16,500</option>
+                            <option value="カット & カラー & トリートメント" data-price="13200">カット &amp; カラー &amp; トリートメント　¥13,200</option>
+                            <option value="カット & ブリーチ & カラー" data-price="19800">カット &amp; ブリーチ &amp; カラー　¥19,800</option>
+                        </optgroup>
+                    </select>
+                </label>
+                <label class="student-option">
+                    <input type="checkbox" id="studentDiscount" name="studentDiscount">
+                    <span>学生証を提示する（学生割引 20%OFF）</span>
+                </label>
+                <div class="price-summary" aria-live="polite">
+                    <span>お会計目安</span>
+                    <strong id="totalPrice">¥—</strong>
+                    <small id="discountMessage">メニューを選択すると料金が表示されます</small>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="form-section-title"><span>03</span><h2>カットのご要望</h2></div>
+                <label class="field">
+                    <span>なりたいスタイルやお悩み <b>必須</b></span>
+                    <textarea name="request" rows="7" placeholder="例：顔まわりにレイヤーを入れたいです。参考にしたい写真があれば、当日お見せします。" required></textarea>
+                </label>
+                <p class="field-note">髪の長さ、カラーの希望、普段のスタイリング方法などもお気軽にご記入ください。</p>
+            </div>
+
+            <div class="form-actions">
+                <p>入力内容をご確認のうえ、送信してください。</p>
+                <button class="submit-button" type="submit">予約リクエストを送信 <span>↗</span></button>
+            </div>
+        </form>
+
+        <section class="form-complete" id="formComplete" hidden>
+            <p class="complete-mark">♡</p>
+            <p class="eyebrow">Thank you</p>
+            <h2>予約リクエストを<br>受け付けました。</h2>
+            <p>担当スタイリストが内容を確認し、入力いただいた電話番号へ折り返しご連絡します。</p>
+            <a class="back-button" href="index.html">サロンサイトへ戻る</a>
+        </section>
+    </main>
+
+    <footer>© 2024 LUMIÈRE hair salon</footer>
+    <script src="reservation.js"></script>
+</body>
+
+</html>
